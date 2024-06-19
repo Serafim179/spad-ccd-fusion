@@ -15,7 +15,7 @@
 %% set up cvx
 
 cvx_setup
-cvx_solver Gurobi_2
+cvx_solver gurobi
 
 %% parameters to be set by user
 

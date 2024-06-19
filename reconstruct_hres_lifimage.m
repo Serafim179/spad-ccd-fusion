@@ -3,6 +3,12 @@
 % University of Bonn
 
 function reco = reconstruct_hres_lifimage(SPADdata, ccd_img, coeffs, highResolution, sigmaBlur)
+addpath("cvx");
+SPADdata = double(SPADdata);
+ccd_img = double(ccd_img);
+
+cvx_setup
+cvx_solver gurobi
 
 alpha = coeffs(1);
 beta  = coeffs(2);
