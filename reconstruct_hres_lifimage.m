@@ -29,7 +29,7 @@ disp('Starting cvx now, this might take a while...');
 
 % build necessary matrices
 A_3d = build_A3d(w, h, t, s_spad, sigmaBlur);
-I = time_integration_matrix(w, h, t);
+I = time_selection_matrix(w,h,t); %time_integration_matrix(w, h, t);
 K1 = space_integration_matrix(w, h, t);
 K2 = space_integration_matrix(s_spad, s_spad, t);
 

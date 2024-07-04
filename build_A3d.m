@@ -21,11 +21,11 @@ for i = 1:s_spad
 end
 
 % pad for right size of blurred image
-P_sub = reshape(P_sub, [size(P_sub, 1), w, h]);
-P_sub = padarray(P_sub, [0, (kernelSize - 1)/2, (kernelSize - 1)/2]);
-P_sub = sparse(reshape(P_sub, [size(P_sub, 1), (w+kernelSize-1) * (h+kernelSize-1)]));
+%P_sub = reshape(P_sub, [size(P_sub, 1), w, h]);
+%P_sub = padarray(P_sub, [0, (kernelSize - 1)/2, (kernelSize - 1)/2]);
+%P_sub = sparse(reshape(P_sub, [size(P_sub, 1), (w+kernelSize-1) * (h+kernelSize-1)]));
 
-P = sparse(P_sub);
+P = P_sub; %sparse(P_sub);
 
 if strcmp(kernelType, 'gaussian')
     kernel = fspecial('gaussian', kernelSize, sigmaBlur);
@@ -70,7 +70,7 @@ end
 
 %% Combine P, S and B and build big matrix for all time frames
 
-A = P*S*B;
+A = P;%*S*B;
 
 A_3d = kron(speye(t), A);
 
